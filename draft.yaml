@@ -1,6 +1,6 @@
 models:
-  Workerdocument:
-    user_id: id foreign id:users
+  Userdocument:
+    user_id: id foreign nullable
     IdCard: string nullable
     Passport: string nullable
     LegalPapersUploaded: string nullable
@@ -27,12 +27,12 @@ models:
     UnitCost: integer
     Maker: string
     ModelNo: string
-    DateStock: datetime
+    DateStock: dateTime
     Type: string defualt:New nullable
     QtyInstock: integer nullable
     Availability: boolean defualt:true
 
-  Stockstatus:
+  StockVehicleStatus:
     status: string default:Active nullable
     sparepartstock_id: id foreign nullable
 
@@ -43,10 +43,12 @@ models:
 
 
   Customer:
-    Fristname: string:20
+    FirstName: string:20
     LastName: string:20
-    OtherName: string:25
-    PhoneNo: string:11
+    OtherName: string:25 nullable
+    PhoneNo: string:11 unique
+    PhoneNo2: string:11 unique nullable
+    ProfileImage: string nullable
     email: string unique
     Address: longtext
     city_id: id nullable
@@ -61,14 +63,21 @@ models:
     customer_id: id foreign
     OrderTrackN0: string:6 unique
     sparepartstock_id: id foreign nullable
+    DateOrders: dateTime
+    OrderServiced: boolean default:false
+
+  Orderitemlist:
+    order_id: id foreign nullable
     QtyOrdered: integer nullable index
     UnitCost: integer nullable
     TotalCost: integer nullable
-    DateOrders: datetime
-    OrderServiced: boolean defualt:false
+    DateOrders: dateTime
+    OrderServiced: boolean default:false
 
   Department:
     name: string nullable
+    relationships:
+      hasMany: User
 
   CompanyAssets\Vehicle:
     name: string nullable
@@ -89,23 +98,23 @@ models:
     BatteryUsed:  string  nullable
     ACCondition: boolean nullable
 
-  Carservice:
+  CompanyAssets\Carservice:
     isCustomerCar: boolean nullable
     customer_id: id foreign id:customers nullable
     isCompanyCar: boolean nullable
-    FaultyRetified: string nullable
+    FaultRetified: string nullable
     Faultypart:  id foreign id:sparepartstocks nullable
-    RepairCost: integer nullable index
     PartChanged: id nullable id:SparePartStock
+    RepairCost: integer nullable index
     TotalCost: integer nullable
     ServiceBy: id foreign id:users
-    DateService: datetime
+    DateService: dateTime
 
-  RefillCarFuel:
+  CompanyAssets\RefillCarFuel:
     department_id: id foreign nullable
     FuelLiter: integer nullable
     UnitCost: integer:8,2 index nullable
-    DateFuelled: datetime
+    DateFuelled: dateTime
     RefilledBy: id foreign id:users
 
   Orderassigned:
@@ -114,7 +123,154 @@ models:
     relationships:
       hasMany: Order
 
-seeders: Orderassigned, Order, Workerdocument, Admin, Stockstatus, SparePartStock, Customer, Stocktaken, Vehicleproperty,
+seeders: Orderassigned, Order, Userdocument, Admin, StockVehicleStatus, SparePartStock, Customer, Stocktaken, Vehicleproperty, RefillCarFuel, Carservice, Vehicledocument, Vehicle, Department, Orderitemlist
+
+controllers:
+  Orderassigned
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: AssignedTo, order_id
+      save: orderassigned
+      send: ReviewNotification to:orderassigned.user with:orderassigned
+      dispatch: SyncMedia with:orderassigned
+      fire: NewOrderassigned with:orderassigned
+      flash: orderassigned.order_id
+      redirect: orderassigned.index
+
+  Order:
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: sparepartstock_id, customer_id
+      save: order
+      send: ReviewNotification to:order.user with:order
+      dispatch: SyncMedia with:order
+      fire: NewOrder with:order
+      flash: order.sparepartstock_id
+      redirect: order.index
+
+  Userdocument
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: IdCard, Passport
+      save: post
+      send: ReviewNotification to:post.user with:post
+      dispatch: SyncMedia with:post
+      fire: NewPost with:post
+      flash: post.title
+      redirect: post.index
+
+  Admin
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: firstName, lastName, phoneN0, email, password
+      save: admin
+      flash: admin.firstName
+      redirect: admin.index
+
+  StockVehicleStatus
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: status, sparepartstock_id
+      save: status
+      flash: status.status
+      redirect: status.index
+
+  SparePartStock
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: title, content
+      save: post
+      send: ReviewNotification to:post.user with:post
+      dispatch: SyncMedia with:post
+      fire: NewPost with:post
+      flash: post.title
+      redirect: post.index
+
+  Customer
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: FirstName, LastName, OtherName, PhoneNo, email, Address, password
+      save: customer
+      send: ReviewNotification to:customer.user with:customer
+      dispatch: SyncMedia with:customer
+      fire: NewCustomerCreated with:customer
+      flash: customer.title
+      redirect: customer.index
+
+  Stocktaken
+    resource: index, show, update, create
+    store:
+      validate: sparepartstock_id, stockUpdatedBy
+      save: stocktaken
+      send: ReviewNotification to:stocktaken.user with:stocktaken
+      dispatch: SyncMedia with:stocktaken
+      fire: NewStocktaken with:stocktaken
+      flash: stocktaken.title
+      redirect: stocktaken.index
+
+  CompanyAssets\Vehicleproperty
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: vehicle_id, OilType
+      save: vehicleproperty
+      flash: vehicleproperty.title
+      redirect: vehicleproperty.index
+
+  CompanyAssets\RefillCarFuel
+    resource: index, show, destroy, create
+    store:
+      validate: FuelLiter, UnitCost
+      save: refillcarfuel
+      send: RefillCarFuelNotification to:user with:refillcarfuel
+      dispatch: SyncMedia with:refillcarfuel
+      fire: NewRefillCarFuel with:refillcarfuel
+      flash: refillcarfuel.FuelLiter
+      redirect: refillcarfuel.index
+
+  CompanyAssets\Carservice
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: isCustomerCar, customer_id, isCompanyCar, FaultRetified, Faultypart, PartChanged, RepairCost
+      save: post
+      send: ReviewNotification to:post.user with:post
+      dispatch: SyncMedia with:post
+      fire: NewPost with:post
+      flash: post.title
+      redirect: post.index
+
+  CompanyAssets\Vehicledocument
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: vehicle_id, PapersDocument
+      save: vehicledocument
+      flash: vehicledocument.title
+      redirect: vehicledocument.index
+
+  CompanyAssets\Vehicle
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: name, type, Model, YearMake, ChassisN0
+      save: vehicle
+      flash: vehicle.name
+      redirect: Vehicle.index
+
+  Department
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: name
+      save: department
+      flash: department.name
+      redirect: department.index
+
+  Orderitemlist:
+    resource: index, show, update, edit, destroy, create
+    store:
+      validate: order_id, QtyOrdered, UnitCost, TotalCost, DateOrders, OrderServiced
+      save: orderitemlist
+      flash: orderitemlist.name
+      redirect: orderitemlist.index
+
+
 
 
 
