@@ -60,12 +60,53 @@ models:
   Order:
     customer_id: id foreign
     OrderTrackN0: string:6 unique
-    sparepartstock_idOrdered: id foreign id:spareparts nullable
+    sparepartstock_id: id foreign nullable
     QtyOrdered: integer nullable index
     UnitCost: integer nullable
     TotalCost: integer nullable
     DateOrders: datetime
     OrderServiced: boolean defualt:false
+
+  Department:
+    name: string nullable
+
+  CompanyAssets\Vehicle:
+    name: string nullable
+    type: string
+    Model: string
+    YearMake: date:Year
+    ChassisN0: string
+
+  CompanyAssets\Vehicledocument:
+    vehicle_id: id foreign nullable
+    PapersDocument: string
+
+  CompanyAssets\Vehicleproperty:
+    vehicle_id: id foreign nullable
+    OilType: string nullable
+    OilMeter: integer nullable
+    Oilfilter: integer nullable
+    BatteryUsed:  string  nullable
+    ACCondition: boolean nullable
+
+  Carservice:
+    isCustomerCar: boolean nullable
+    customer_id: id foreign id:customers nullable
+    isCompanyCar: boolean nullable
+    FaultyRetified: string nullable
+    Faultypart:  id foreign id:sparepartstocks nullable
+    RepairCost: integer nullable index
+    PartChanged: id nullable id:SparePartStock
+    TotalCost: integer nullable
+    ServiceBy: id foreign id:users
+    DateService: datetime
+
+  RefillCarFuel:
+    department_id: id foreign nullable
+    FuelLiter: integer nullable
+    UnitCost: integer:8,2 index nullable
+    DateFuelled: datetime
+    RefilledBy: id foreign id:users
 
   Orderassigned:
     order_id: id foreign nullable
@@ -73,7 +114,8 @@ models:
     relationships:
       hasMany: Order
 
-seeders: Orderassigned, Order, Workerdocument, Admin, Stockstatus, SparePartStock, Customer, Stocktaken
+seeders: Orderassigned, Order, Workerdocument, Admin, Stockstatus, SparePartStock, Customer, Stocktaken, Vehicleproperty,
+
 
 
 
