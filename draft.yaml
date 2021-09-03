@@ -1,0 +1,83 @@
+models:
+  Workerdocument:
+    user_id: id foreign id:users
+    IdCard: string nullable
+    Passport: string nullable
+    LegalPapersUploaded: string nullable
+    OtherDocsHandPrint: string nullable
+
+  Admin:
+    firstName: string
+    lastName: string
+    phoneN0: string,11
+    email: string unique
+    profilePicture: longtext
+    password: string
+    role_id: id nullable
+    permission_id: id nullable
+    relationships:
+      belongsToMany: \Spatie\LaravelPermission\Models\Role
+  User:
+    relationships:
+      belongsToMany: \Spatie\LaravelPermission\Models\Role
+
+  SparePartStock:
+    partTrackN0: string unique
+    partName: string index
+    UnitCost: integer
+    Maker: string
+    ModelNo: string
+    DateStock: datetime
+    Type: string defualt:New nullable
+    QtyInstock: integer nullable
+    Availability: boolean defualt:true
+
+  Stockstatus:
+    status: string default:Active nullable
+    sparepartstock_id: id foreign nullable
+
+
+  Stocktaken:
+    sparepartstock_id: id foreign nullable
+    stockUpdatedBy: id foreign id:users nullable
+
+
+  Customer:
+    Fristname: string:20
+    LastName: string:20
+    OtherName: string:25
+    PhoneNo: string:11
+    email: string unique
+    Address: longtext
+    city_id: id nullable
+    state_id: id nullable
+    password: string
+    CurrentGpsLocationLong: double:6,4
+    CurrentGpsLocationLat: double:6,4
+    CustomerStatus: boolean default:true
+    email_verified_at: timestamp
+
+  Order:
+    customer_id: id foreign
+    OrderTrackN0: string:6 unique
+    sparepartstock_idOrdered: id foreign id:spareparts nullable
+    QtyOrdered: integer nullable index
+    UnitCost: integer nullable
+    TotalCost: integer nullable
+    DateOrders: datetime
+    OrderServiced: boolean defualt:false
+
+  Orderassigned:
+    order_id: id foreign nullable
+    AssignedTo: id foreign id:users nullable
+    relationships:
+      hasMany: Order
+
+seeders: Orderassigned, Order, Workerdocument, Admin, Stockstatus, SparePartStock, Customer, Stocktaken
+
+
+
+
+
+
+
