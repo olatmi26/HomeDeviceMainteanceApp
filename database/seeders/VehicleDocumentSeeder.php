@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\CompanyAssets\VehicleDocument;
 use Illuminate\Database\Seeder;
 
-class PermissionSeederTable extends Seeder
+class VehicleDocumentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,6 @@ class PermissionSeederTable extends Seeder
      */
     public function run()
     {
-        //
+        VehicleDocument::factory()->count(5)->create();
     }
 }

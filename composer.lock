@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1bef0854a783b80ba43160b075c96e44",
+    "content-hash": "64135c57a9f338c60bfd0ac345937f3c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -803,6 +803,114 @@
             "time": "2021-06-30T20:03:07+00:00"
         },
         {
+            "name": "isurindu/laravel-sms",
+            "version": "1.7.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/isurindu/laravel-sms.git",
+                "reference": "0d5e6869003f72f1232aaad43f6e23abc414f83d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/isurindu/laravel-sms/zipball/0d5e6869003f72f1232aaad43f6e23abc414f83d",
+                "reference": "0d5e6869003f72f1232aaad43f6e23abc414f83d",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.5.5|^7.0.1",
+                "shoutoutlabs/shoutout-sdk": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Isurindu\\LaravelSms\\LaravelSmsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Sms": "Isurindu\\LaravelSms\\Facades\\Sms"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Isurindu\\LaravelSms\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "authors": [
+                {
+                    "name": "isurindu prabashwara",
+                    "email": "isurindu.prabashwara@gmail.com"
+                }
+            ],
+            "description": "Simple SMS Package for laravel",
+            "support": {
+                "issues": "https://github.com/isurindu/laravel-sms/issues",
+                "source": "https://github.com/isurindu/laravel-sms/tree/1.7.5"
+            },
+            "time": "2021-08-23T11:22:38+00:00"
+        },
+        {
+            "name": "laravel-notification-channels/sms77",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/sms77.git",
+                "reference": "d2f1cff549a8c8006b2dddf1504072f8653af948"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/sms77/zipball/d2f1cff549a8c8006b2dddf1504072f8653af948",
+                "reference": "d2f1cff549a8c8006b2dddf1504072f8653af948",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.5 || ^7.0",
+                "illuminate/notifications": "~5.5 || ~6.0 || ~7.0 || ^8.0",
+                "illuminate/support": "~5.5 || ~6.0 || ~7.0 || ^8.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3",
+                "phpunit/phpunit": "^8.0 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\SMS77\\SMS77ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\SMS77\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maximilian Schöll",
+                    "email": "mail@mxschll.com",
+                    "homepage": "https://mxschll.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "SMS77 Notifications Channel for Laravel",
+            "homepage": "https://github.com/laravel-notification-channels/sms77",
+            "support": {
+                "issues": "https://github.com/laravel-notification-channels/sms77/issues",
+                "source": "https://github.com/laravel-notification-channels/sms77/tree/v1.0.2"
+            },
+            "time": "2021-01-10T13:06:04+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v8.58.0",
             "source": {
@@ -1410,6 +1518,92 @@
                 }
             ],
             "time": "2021-01-18T20:58:21+00:00"
+        },
+        {
+            "name": "moneyphp/money",
+            "version": "v3.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moneyphp/money.git",
+                "reference": "122664c2621a95180a13c1ac81fea1d2ef20781e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/122664c2621a95180a13c1ac81fea1d2ef20781e",
+                "reference": "122664c2621a95180a13c1ac81fea1d2ef20781e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "cache/taggable-cache": "^0.4.0",
+                "doctrine/instantiator": "^1.0.5",
+                "ext-bcmath": "*",
+                "ext-gmp": "*",
+                "ext-intl": "*",
+                "florianv/exchanger": "^1.0",
+                "florianv/swap": "^3.0",
+                "friends-of-phpspec/phpspec-code-coverage": "^3.1.1 || ^4.3",
+                "moneyphp/iso-currencies": "^3.2.1",
+                "php-http/message": "^1.4",
+                "php-http/mock-client": "^1.0.0",
+                "phpspec/phpspec": "^3.4.3",
+                "phpunit/phpunit": "^5.7.27 || ^6.5.14 || ^7.5.18 || ^8.5",
+                "psr/cache": "^1.0",
+                "symfony/phpunit-bridge": "^4"
+            },
+            "suggest": {
+                "ext-bcmath": "Calculate without integer limits",
+                "ext-gmp": "Calculate without integer limits",
+                "ext-intl": "Format Money objects with intl",
+                "florianv/exchanger": "Exchange rates library for PHP",
+                "florianv/swap": "Exchange rates library for PHP",
+                "psr/cache-implementation": "Used for Currency caching"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Money\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mathias Verraes",
+                    "email": "mathias@verraes.net",
+                    "homepage": "http://verraes.net"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                },
+                {
+                    "name": "Frederik Bosch",
+                    "email": "f.bosch@genkgo.nl"
+                }
+            ],
+            "description": "PHP implementation of Fowler's Money pattern",
+            "homepage": "http://moneyphp.org",
+            "keywords": [
+                "Value Object",
+                "money",
+                "vo"
+            ],
+            "support": {
+                "issues": "https://github.com/moneyphp/money/issues",
+                "source": "https://github.com/moneyphp/money/tree/master"
+            },
+            "time": "2020-03-18T17:49:59+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2444,6 +2638,127 @@
                 }
             ],
             "time": "2021-08-11T01:06:55+00:00"
+        },
+        {
+            "name": "shoutoutlabs/shoutout-sdk",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shoutout-labs/shoutout-sdk-php.git",
+                "reference": "662f05e0779907917a3f314a21c5b507bfb5bcc4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shoutout-labs/shoutout-sdk-php/zipball/662f05e0779907917a3f314a21c5b507bfb5bcc4",
+                "reference": "662f05e0779907917a3f314a21c5b507bfb5bcc4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~1.12",
+                "phpunit/phpunit": "~4.8",
+                "satooshi/php-coveralls": "~1.0",
+                "squizlabs/php_codesniffer": "~2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Swagger\\Client\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ShoutOUT Team",
+                    "email": "dev@getshoutout.com"
+                }
+            ],
+            "description": "shoutout sdk for php",
+            "homepage": "http://getshoutout.com",
+            "keywords": [
+                "api",
+                "php",
+                "sdk",
+                "swagger"
+            ],
+            "support": {
+                "issues": "https://github.com/shoutout-labs/shoutout-sdk-php/issues",
+                "source": "https://github.com/shoutout-labs/shoutout-sdk-php/tree/3.0.0"
+            },
+            "time": "2018-04-11T09:18:34+00:00"
+        },
+        {
+            "name": "sms77/api",
+            "version": "v2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sms77io/php-client.git",
+                "reference": "121ef7429b370cc648a3733adbc9a54236c873f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sms77io/php-client/zipball/121ef7429b370cc648a3733adbc9a54236c873f1",
+                "reference": "121ef7429b370cc648a3733adbc9a54236c873f1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "ext-simplexml": "*",
+                "ext-soap": "*",
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sms77\\Api\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "sms77 e.K.",
+                    "email": "a.matthies@sms77.io",
+                    "homepage": "https://www.sms77.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Official API Client for requesting the Sms77.io SMS Gateway.",
+            "homepage": "https://github.com/sms77io/php-client",
+            "keywords": [
+                "2fa",
+                "cnam",
+                "gateway",
+                "hlr",
+                "mnp",
+                "sms",
+                "text2speech",
+                "tts"
+            ],
+            "support": {
+                "docs": "https://github.com/sms77io/php-client",
+                "email": "support@sms77.io",
+                "issues": "https://github.com/sms77io/php-client/issues",
+                "rss": "https://www.sms77.io/de/feed/",
+                "source": "https://github.com/sms77io/php-client"
+            },
+            "time": "2021-05-10T08:01:36+00:00"
         },
         {
             "name": "spatie/laravel-permission",
@@ -5993,55 +6308,6 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
-            "name": "jasonmccreary/laravel-test-assertions",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jasonmccreary/laravel-test-assertions.git",
-                "reference": "163c9df0a68a6fb7c39827292a315408bcea27cc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jasonmccreary/laravel-test-assertions/zipball/163c9df0a68a6fb7c39827292a315408bcea27cc",
-                "reference": "163c9df0a68a6fb7c39827292a315408bcea27cc",
-                "shasum": ""
-            },
-            "require": {
-                "mockery/mockery": "^1.0",
-                "php": ">=7.2",
-                "phpunit/phpunit": "^7.5|^8.0|^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "JMac\\Testing\\AdditionalAssertionsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "JMac\\Testing\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jason McCreary",
-                    "email": "jason@pureconcepts.net"
-                }
-            ],
-            "description": "A set of helpful assertions when testing Laravel applications.",
-            "support": {
-                "issues": "https://github.com/jasonmccreary/laravel-test-assertions/issues",
-                "source": "https://github.com/jasonmccreary/laravel-test-assertions/tree/v1.1.0"
-            },
-            "time": "2021-02-20T13:23:21+00:00"
-        },
-        {
             "name": "krlove/code-generator",
             "version": "1.0.0",
             "source": {
@@ -8159,6 +8425,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {

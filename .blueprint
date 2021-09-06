@@ -1,16 +1,214 @@
+created:
+    - app/Http/Controllers/OrderAssignToController.php
+    - app/Http/Controllers/CarRepairEvidenceController.php
+    - app/Http/Controllers/OrderController.php
+    - app/Http/Controllers/UserController.php
+    - app/Http/Controllers/UserDocumentController.php
+    - app/Http/Controllers/AdminController.php
+    - app/Http/Controllers/StockController.php
+    - app/Http/Controllers/CustomerController.php
+    - app/Http/Controllers/CompanyAssets/VehiclePartDetailController.php
+    - app/Http/Controllers/CompanyAssets/CarFuellingController.php
+    - app/Http/Controllers/CompanyAssets/CarserviceController.php
+    - app/Http/Controllers/CompanyAssets/VehicleDocumentController.php
+    - app/Http/Controllers/CompanyAssets/VehicleController.php
+    - app/Http/Controllers/DepartmentController.php
+    - app/Http/Controllers/OrderItemController.php
+    - database/factories/DepartmentFactory.php
+    - database/factories/UserFactory.php
+    - database/factories/UserDocumentFactory.php
+    - database/factories/AdminFactory.php
+    - database/factories/CategoryFactory.php
+    - database/factories/StockFactory.php
+    - database/factories/StockCountFactory.php
+    - database/factories/CustomerFactory.php
+    - database/factories/OrderFactory.php
+    - database/factories/OrderItemFactory.php
+    - database/factories/CompanyAssets/VehicleFactory.php
+    - database/factories/CompanyAssets/VehicleDocumentFactory.php
+    - database/factories/CompanyAssets/VehiclePartDetailFactory.php
+    - database/factories/OilFilterFactory.php
+    - database/factories/PartFaultFactory.php
+    - database/factories/CompanyAssets/CarserviceFactory.php
+    - database/factories/CompanyAssets/CarFuellingFactory.php
+    - database/factories/OrderAssignToFactory.php
+    - database/factories/CarRepairEvidenceFactory.php
+    - database/migrations/2021_09_06_163441_create_departments_table.php
+    - database/migrations/2021_09_06_163442_create_users_table.php
+    - database/migrations/2021_09_06_163443_create_user_documents_table.php
+    - database/migrations/2021_09_06_163444_create_admins_table.php
+    - database/migrations/2021_09_06_163445_create_categories_table.php
+    - database/migrations/2021_09_06_163446_create_stocks_table.php
+    - database/migrations/2021_09_06_163447_create_stock_counts_table.php
+    - database/migrations/2021_09_06_163448_create_customers_table.php
+    - database/migrations/2021_09_06_163449_create_orders_table.php
+    - database/migrations/2021_09_06_163450_create_order_items_table.php
+    - database/migrations/2021_09_06_163451_create_vehicles_table.php
+    - database/migrations/2021_09_06_163452_create_vehicle_documents_table.php
+    - database/migrations/2021_09_06_163453_create_vehicle_part_details_table.php
+    - database/migrations/2021_09_06_163454_create_oil_filters_table.php
+    - database/migrations/2021_09_06_163455_create_part_faults_table.php
+    - database/migrations/2021_09_06_163456_create_carservices_table.php
+    - database/migrations/2021_09_06_163457_create_car_fuellings_table.php
+    - database/migrations/2021_09_06_163458_create_order_assign_tos_table.php
+    - database/migrations/2021_09_06_163459_create_car_repair_evidence_table.php
+    - database/migrations/2021_09_06_163500_create_role_user_table.php
+    - database/migrations/2021_09_06_163501_create_user_user_document_table.php
+    - database/migrations/2021_09_06_163502_create_admin_role_table.php
+    - app/Models/Department.php
+    - app/Models/User.php
+    - app/Models/UserDocument.php
+    - app/Models/Admin.php
+    - app/Models/Category.php
+    - app/Models/Stock.php
+    - app/Models/StockCount.php
+    - app/Models/Customer.php
+    - app/Models/Order.php
+    - app/Models/OrderItem.php
+    - app/Models/CompanyAssets/Vehicle.php
+    - app/Models/CompanyAssets/VehicleDocument.php
+    - app/Models/CompanyAssets/VehiclePartDetail.php
+    - app/Models/OilFilter.php
+    - app/Models/PartFault.php
+    - app/Models/CompanyAssets/Carservice.php
+    - app/Models/CompanyAssets/CarFuelling.php
+    - app/Models/OrderAssignTo.php
+    - app/Models/CarRepairEvidence.php
+    - database/seeders/OrderAssignToSeeder.php
+    - database/seeders/OrderSeeder.php
+    - database/seeders/AdminSeeder.php
+    - database/seeders/StockSeeder.php
+    - database/seeders/CustomerSeeder.php
+    - database/seeders/VehiclePartDetailSeeder.php
+    - database/seeders/CarFuellingSeeder.php
+    - database/seeders/CarserviceSeeder.php
+    - database/seeders/VehicleDocumentSeeder.php
+    - database/seeders/VehicleSeeder.php
+    - database/seeders/DepartmentSeeder.php
+    - database/seeders/CarRepairEvidenceSeeder.php
+    - tests/Feature/Http/Controllers/OrderAssignToControllerTest.php
+    - tests/Feature/Http/Controllers/CarRepairEvidenceControllerTest.php
+    - tests/Feature/Http/Controllers/OrderControllerTest.php
+    - tests/Feature/Http/Controllers/UserControllerTest.php
+    - tests/Feature/Http/Controllers/UserDocumentControllerTest.php
+    - tests/Feature/Http/Controllers/AdminControllerTest.php
+    - tests/Feature/Http/Controllers/StockControllerTest.php
+    - tests/Feature/Http/Controllers/CustomerControllerTest.php
+    - tests/Feature/Http/Controllers/CompanyAssets/VehiclePartDetailControllerTest.php
+    - tests/Feature/Http/Controllers/CompanyAssets/CarFuellingControllerTest.php
+    - tests/Feature/Http/Controllers/CompanyAssets/CarserviceControllerTest.php
+    - tests/Feature/Http/Controllers/CompanyAssets/VehicleDocumentControllerTest.php
+    - tests/Feature/Http/Controllers/CompanyAssets/VehicleControllerTest.php
+    - tests/Feature/Http/Controllers/DepartmentControllerTest.php
+    - tests/Feature/Http/Controllers/OrderItemControllerTest.php
+    - app/Http/Requests/OrderAssignToUpdateRequest.php
+    - app/Http/Requests/OrderAssignToStoreRequest.php
+    - app/Http/Requests/CarRepairEvidenceUpdateRequest.php
+    - app/Http/Requests/CarRepairEvidenceStoreRequest.php
+    - app/Http/Requests/OrderUpdateRequest.php
+    - app/Http/Requests/OrderStoreRequest.php
+    - app/Http/Requests/UserUpdateRequest.php
+    - app/Http/Requests/UserStoreRequest.php
+    - app/Http/Requests/UserDocumentUpdateRequest.php
+    - app/Http/Requests/UserDocumentStoreRequest.php
+    - app/Http/Requests/AdminUpdateRequest.php
+    - app/Http/Requests/AdminStoreRequest.php
+    - app/Http/Requests/StockUpdateRequest.php
+    - app/Http/Requests/StockStoreRequest.php
+    - app/Http/Requests/CustomerUpdateRequest.php
+    - app/Http/Requests/CustomerStoreRequest.php
+    - app/Http/Requests/CompanyAssets/VehiclePartDetailUpdateRequest.php
+    - app/Http/Requests/CompanyAssets/VehiclePartDetailStoreRequest.php
+    - app/Http/Requests/CompanyAssets/CarFuellingStoreRequest.php
+    - app/Http/Requests/CompanyAssets/CarserviceUpdateRequest.php
+    - app/Http/Requests/CompanyAssets/CarserviceStoreRequest.php
+    - app/Http/Requests/CompanyAssets/VehicleDocumentUpdateRequest.php
+    - app/Http/Requests/CompanyAssets/VehicleDocumentStoreRequest.php
+    - app/Http/Requests/CompanyAssets/VehicleUpdateRequest.php
+    - app/Http/Requests/CompanyAssets/VehicleStoreRequest.php
+    - app/Http/Requests/DepartmentUpdateRequest.php
+    - app/Http/Requests/DepartmentStoreRequest.php
+    - app/Http/Requests/OrderItemUpdateRequest.php
+    - app/Http/Requests/OrderItemStoreRequest.php
+    - resources/views/orderAssignTo/index.blade.php
+    - resources/views/orderAssignTo/create.blade.php
+    - resources/views/orderAssignTo/show.blade.php
+    - resources/views/orderAssignTo/edit.blade.php
+    - resources/views/carRepairEvidence/index.blade.php
+    - resources/views/carRepairEvidence/create.blade.php
+    - resources/views/carRepairEvidence/show.blade.php
+    - resources/views/carRepairEvidence/edit.blade.php
+    - resources/views/order/index.blade.php
+    - resources/views/order/create.blade.php
+    - resources/views/order/show.blade.php
+    - resources/views/order/edit.blade.php
+    - resources/views/user/index.blade.php
+    - resources/views/user/create.blade.php
+    - resources/views/user/show.blade.php
+    - resources/views/user/edit.blade.php
+    - resources/views/userDocument/index.blade.php
+    - resources/views/userDocument/create.blade.php
+    - resources/views/userDocument/show.blade.php
+    - resources/views/userDocument/edit.blade.php
+    - resources/views/admin/index.blade.php
+    - resources/views/admin/create.blade.php
+    - resources/views/admin/show.blade.php
+    - resources/views/admin/edit.blade.php
+    - resources/views/stock/index.blade.php
+    - resources/views/stock/create.blade.php
+    - resources/views/stock/show.blade.php
+    - resources/views/stock/edit.blade.php
+    - resources/views/customer/index.blade.php
+    - resources/views/customer/create.blade.php
+    - resources/views/customer/show.blade.php
+    - resources/views/customer/edit.blade.php
+    - resources/views/vehiclePartDetail/index.blade.php
+    - resources/views/vehiclePartDetail/create.blade.php
+    - resources/views/vehiclePartDetail/show.blade.php
+    - resources/views/vehiclePartDetail/edit.blade.php
+    - resources/views/carFuelling/index.blade.php
+    - resources/views/carFuelling/create.blade.php
+    - resources/views/carFuelling/show.blade.php
+    - resources/views/carservice/index.blade.php
+    - resources/views/carservice/create.blade.php
+    - resources/views/carservice/show.blade.php
+    - resources/views/carservice/edit.blade.php
+    - resources/views/vehicleDocument/index.blade.php
+    - resources/views/vehicleDocument/create.blade.php
+    - resources/views/vehicleDocument/show.blade.php
+    - resources/views/vehicleDocument/edit.blade.php
+    - resources/views/vehicle/index.blade.php
+    - resources/views/vehicle/create.blade.php
+    - resources/views/vehicle/show.blade.php
+    - resources/views/vehicle/edit.blade.php
+    - resources/views/department/index.blade.php
+    - resources/views/department/create.blade.php
+    - resources/views/department/show.blade.php
+    - resources/views/department/edit.blade.php
+    - resources/views/orderItem/index.blade.php
+    - resources/views/orderItem/create.blade.php
+    - resources/views/orderItem/show.blade.php
+    - resources/views/orderItem/edit.blade.php
+updated:
+    - routes/web.php
 models:
-    Workerdocument: { user_id: 'id foreign id:users', IdCard: 'string nullable', Passport: 'string nullable', LegalPapersUploaded: 'string nullable', OtherDocsHandPrint: 'string nullable' }
-    Admin: { firstName: string, lastName: string, phoneN0: 'string,11', email: 'string unique', profilePicture: longtext, password: string, role_id: 'id nullable', permission_id: 'id nullable', relationships: { belongsToMany: \Spatie\LaravelPermission\Models\Role } }
-    User: { relationships: { belongsToMany: \Spatie\LaravelPermission\Models\Role } }
-    SparePartStock: { partTrackN0: 'string unique', partName: 'string index', UnitCost: integer, Maker: string, ModelNo: string, DateStock: datetime, Type: 'string defualt:New nullable', QtyInstock: 'integer nullable', Availability: 'boolean defualt:true' }
-    Stockstatus: { status: 'string default:Active nullable', sparepartstock_id: 'id foreign nullable' }
-    Stocktaken: { sparepartstock_id: 'id foreign nullable', stockUpdatedBy: 'id foreign id:users nullable' }
-    Customer: { Fristname: 'string:20', LastName: 'string:20', OtherName: 'string:25', PhoneNo: 'string:11', email: 'string unique', Address: longtext, city_id: 'id nullable', state_id: 'id nullable', password: string, CurrentGpsLocationLong: 'double:6,4', CurrentGpsLocationLat: 'double:6,4', CustomerStatus: 'boolean default:true', email_verified_at: timestamp }
-    Order: { customer_id: 'id foreign', OrderTrackN0: 'string:6 unique', sparepartstock_id: 'id foreign nullable', QtyOrdered: 'integer nullable index', UnitCost: 'integer nullable', TotalCost: 'integer nullable', DateOrders: datetime, OrderServiced: 'boolean defualt:false' }
-    Department: { name: 'string nullable', relationships: { hasMany: User } }
-    CompanyAssets\Vehicle: { name: 'string nullable', type: string, Model: string, YearMake: 'date:Year', ChassisN0: string }
-    CompanyAssets\Vehicledocument: { vehicle_id: 'id foreign nullable', PapersDocument: string }
-    CompanyAssets\Vehicleproperty: { vehicle_id: 'id foreign nullable', OilType: 'string nullable', OilMeter: 'integer nullable', Oilfilter: 'integer nullable', BatteryUsed: 'string  nullable', ACCondition: 'boolean nullable' }
-    CompanyAssets\Carservice: { isCustomerCar: 'boolean nullable', customer_id: 'id foreign id:customers nullable', isCompanyCar: 'boolean nullable', FaultyRetified: 'string nullable', Faultypart: 'id foreign id:sparepartstocks nullable', PartChanged: 'id nullable id:SparePartStock', RepairCost: 'integer nullable index', TotalCost: 'integer nullable', ServiceBy: 'id foreign id:users', DateService: datetime }
-    CompanyAssets\RefillCarFuel: { department_id: 'id foreign nullable', FuelLiter: 'integer nullable', UnitCost: 'integer:8,2 index nullable', DateFuelled: datetime, RefilledBy: 'id foreign id:users' }
-    Orderassigned: { order_id: 'id foreign nullable', AssignedTo: 'id foreign id:users nullable', relationships: { hasMany: Order } }
+    Employee: { firstname: 'string:20', lastname: 'string:20', othername: 'string:20 nullable', mobilen01: 'string:11', mobilen02: 'string:11 nullable', mobilen03: 'string:11 nullable', profilephoto: 'string nullable', residentailaddress: 'text nullable', city: 'text nullable', dob: date, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    Department: { name: 'string nullable', relationships: { hasMany: 'Admin, User' } }
+    User: { Firstname: 'string:20', Lastname: 'string:20', Othername: 'string:20 nullable', department_id: 'id foreign nullable', MobileN01: 'string:11', MobileN02: 'string:11 nullabe', MobileN03: 'string:11 nullabe', ProfilePhoto: 'string  nullable', ResidentialAddress: longtext, City: string, DOB: date, email: 'string unique', email_verified_at: datetime, password: string, relationships: { belongsToMany: '\Spatie\LaravelPermission\Models\Role, UserDocument' } }
+    UserDocument: { user_id: 'integer unsigned nullable', IdCard: 'string nullable', PassportDocument: 'string nullable', LegalPapersUploaded: 'string nullable', OtherDocsHandPrint: 'string nullable' }
+    Admin: { firstName: string, lastName: string, phoneN0: 'string,11', email: 'string unique', profilePicture: longtext, password: string, relationships: { belongsToMany: \Spatie\LaravelPermission\Models\Role } }
+    Category: { name: 'string nullable', description: longtext }
+    Stock: { partTrackN0: 'string unique', category_id: 'id foreign nullable', partName: 'string index', UnitCost: 'unsigned integer nullable', Maker: string, ModelNo: string, DateStock: dateTime, Type: 'string nullable', QtyInstock: 'unsigned integer nullable', Availability: 'unsigned integer nullable default:1', status: 'string default:Active nullable', stockBy: 'integer unsigned nullable' }
+    StockCount: { category_id: 'id foreign nullable', QtyInstock: 'integer unsigned nullable', stockUpdatedBy: 'unsigned integer nullable' }
+    Customer: { FirstName: 'string:20', LastName: 'string:20', OtherName: 'string:25 nullable', PhoneNo: 'string:11 unique', PhoneNo2: 'string:11 unique nullable', ProfileImage: 'string nullable', email: 'string unique', Address: longtext, city_id: 'unsigned integer nullable', state_id: 'unsigned integer nullable', password: string, CurrentGpsLocationLong: 'decimal:10,8 nullable', CurrentGpsLocationLat: 'decimal:10,8 nullable', CustomerStatus: 'boolean default:true', email_verified_at: timestamp, relationships: { hasMany: Order } }
+    Order: { customer_id: 'id foreign nullable', OrderTrackN0: 'string:6 unique', stock_id: 'id foreign nullable', DateOrders: dateTime, isOrderService: 'boolean default:false nullable', relationships: { hasMany: OrderItem } }
+    OrderItem: { order_id: 'id foreign nullable', category_id: 'id foreign nullable', stock_id: 'id foreign nullable', QtyOrdered: 'integer nullable index', UnitCost: 'integer nullable', TotalCost: 'integer nullable', DateOrder: datetime, OrderServiced: 'boolean default:false' }
+    CompanyAssets\Vehicle: { name: 'string nullable', type: string, Model: string, YearMake: date, YearPurchased: date, ChassisN0: string, AssignedDriver: 'id foreign:users.id nullable', relationships: { hasMany: VehicleDocument } }
+    CompanyAssets\VehicleDocument: { vehicle_id: 'unsigned integer nullable', DocumentName: 'string nullable', DocumentPaper: 'string nullable' }
+    CompanyAssets\VehiclePartDetail: { vehicle_id: 'unsigned integer nullable', OilType: 'string nullable', OilMeter: 'integer nullable', OilfilterGuaged: 'boolean nullable default:true', BatteryUsed: 'string  nullable', ACCondition: 'boolean nullable' }
+    OilFilter: { vehicle_id: 'id foreign nullable', WhenFIlterChanged: datetime, ExpectedNextChange: datetime, ChangedBy: 'id foreign:users.id nullable' }
+    PartFault: { partFualty: 'string nullable', ExactFualt: longtext, PartReplacewith: 'id foreign:stocks.id nullable', PartChanged: 'id foreign:stocks.id nullable', fualtyCOmponentPicture: 'string nullable' }
+    CompanyAssets\Carservice: { vehicle_id: 'unsigned integer nullable', isCustomerCar: 'boolean nullable', customer_id: 'id foreign:customers.id nullable', isCompanyCar: 'boolean nullable', partfault_id: 'id foreign nullable', fualtyCOmponentPicture: 'string nullable', RepairCost: 'integer nullable index', TotalCost: 'integer nullable', ServiceBy: 'id foreign:users.id nullable', DateService: dateTime }
+    CompanyAssets\CarFuelling: { vehicle_id: 'unsigned integer nullable', department_id: 'unsigned integer nullable', FuelLiter: 'integer nullable', UnitCost: 'unsigned integer nullable', DateFuelled: dateTime, RefilledBy: 'id foreign:users.id nullable' }
+    OrderAssignTo: { order_id: 'id foreign nullable', AssignedTo: 'id foreign:users.id nullable', OrderCompleted: 'boolean default:false nullable', AssignedBy: 'id foreign:users.id', relationships: { hasMany: 'Order, CarRepairEvidence' } }
+    CarRepairEvidence: { orderassignto_id: 'id foreign nullable', FaultyComponentPictures: 'string nullable', VoiceRecord: 'string nullable' }
