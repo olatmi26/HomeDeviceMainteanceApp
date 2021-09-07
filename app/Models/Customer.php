@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Customer extends Model
+class Customer extends Authenticatable
 {
+    use HasFactory, Notifiable;
     use HasFactory;
 
     /**
@@ -58,5 +61,10 @@ class Customer extends Model
     public function orders()
     {
         return $this->hasMany(\App\Models\Order::class);
+    }
+
+    public function getFullNameAttribute()
+    {
+        return ucfirst($this->Firstname) . ' ' . Str::upper($this->Lastname). ' ' . Str::upper($this->Othername);
     }
 }

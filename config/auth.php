@@ -45,6 +45,11 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+
+        'customer' => [
+            'driver' => 'session',
+            'provider' => 'customers',
+        ],
     ],
 
     /*
@@ -53,8 +58,12 @@ return [
     |--------------------------------------------------------------------------
     |
     | All authentication drivers have a user provider. This defines how the
-    | users are actually retrieved out of your database or other storage
-    | mechanisms used by this application to persist your user's data.
+    | users
+     are actually retrieved out of your database or other storage
+    | mechanism
+    
+    
+    s used by this application to persist your user's data.
     |
     | If you have multiple user tables or models you may configure multiple
     | sources which represent each model / table. These sources may then
@@ -73,6 +82,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Customer::class,
         ],
 
         // 'users' => [
@@ -100,7 +114,7 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 360,
             'throttle' => 60,
         ],
 
@@ -108,6 +122,12 @@ return [
             'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 10,            
+        ],
+        
+        'customers' => [
+            'provider' => 'customers',
+            'table' => 'password_resets',
+            'expire' => 100000,            
         ],
     ],
 

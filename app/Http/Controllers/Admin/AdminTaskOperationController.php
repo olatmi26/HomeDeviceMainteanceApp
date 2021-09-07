@@ -9,6 +9,6 @@ class AdminTaskOperationController extends Controller
 {
     public function getAdminDashboard()
     {
-        return view('admin.dashboard');
+        return view('layouts.admin-dashboard.master');
     }
 }

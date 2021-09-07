@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasFactory;
-
+    use HasFactory, Notifiable;
     /**
      * The attributes that are mass assignable.
      *
@@ -32,14 +33,16 @@ class User extends Model
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $hidden = [
         'password',
+        'remember_token',        
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
-
     /**
      * The attributes that should be cast to native types.
      *
@@ -67,4 +70,11 @@ class User extends Model
     {
         return $this->belongsTo(\App\Models\Department::class);
     }
+
+    public function getFullNameAttribute()
+    {
+        return ucfirst($this->Firstname) . ' ' . Str::upper($this->Lastname). ' ' . Str::upper($this->Othername);
+    }
+
 }
+

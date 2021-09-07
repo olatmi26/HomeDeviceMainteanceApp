@@ -33,6 +33,23 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });    
 });
 
+
+Route::prefix('customer')->name('customer.')->group(function () {
+    //customer Authentication Routes
+    Route::post('login-attempt', 'CustomerGustController@login')->name('login-attempt');
+    Route::post('login-attempt', 'CustomerGustController@login')->name('login-attempt');
+
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/', 'CustomerController@index')->name('dashboard');
+    });    
+});
+
+Route::prefix('staff')->name('staff.')->group(function () {     
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/', 'UserController@index')->name('dashboard');
+    });    
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('order-assign-to', 'OrderAssignToController');
