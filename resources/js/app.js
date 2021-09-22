@@ -5,7 +5,6 @@ import 'icheck-bootstrap';
 import Swal from 'sweetalert2/src/sweetalert2.js';
 import $ from 'jquery';
 import Filterizr from 'filterizr';
-import 'dropzone';
 import 'bootstrap4-duallistbox';
 window.toastr = require('toastr');
 window.swal = Swal;

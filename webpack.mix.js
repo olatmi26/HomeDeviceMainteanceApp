@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
-
+mix.browserSync({
+    proxy: 'http://localhost:1500'
+});
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -12,5 +14,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/sitescript.js', 'public/frontend/js')
+    .sass('resources/sass/fontawes.scss', 'public/frontend/css')
     .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/sitestyle.scss', 'public/css')
     .sourceMaps();
+// are u with me

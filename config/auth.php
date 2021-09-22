@@ -40,10 +40,15 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
+        ],
+
+        'worker' => [
+            'driver' => 'session',
+            'provider' => 'workers',
         ],
 
         'customer' => [
@@ -61,8 +66,8 @@ return [
     | users
      are actually retrieved out of your database or other storage
     | mechanism
-    
-    
+
+
     s used by this application to persist your user's data.
     |
     | If you have multiple user tables or models you may configure multiple
@@ -84,7 +89,12 @@ return [
             'model' => App\Models\Admin::class,
         ],
 
-        'admins' => [
+        'workers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+
+        'customers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Customer::class,
         ],
@@ -121,13 +131,19 @@ return [
         'admins' => [
             'provider' => 'admins',
             'table' => 'password_resets',
-            'expire' => 10,            
+            'expire' => 10,
         ],
-        
+
         'customers' => [
             'provider' => 'customers',
             'table' => 'password_resets',
-            'expire' => 100000,            
+            'expire' => 100000,
+        ],
+
+        'workers' => [
+            'provider' => 'workers',
+            'table' => 'password_resets',
+            'expire' => 1000,
         ],
     ],
 

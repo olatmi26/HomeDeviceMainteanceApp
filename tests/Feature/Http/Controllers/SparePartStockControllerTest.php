@@ -3,7 +3,6 @@
 namespace Tests\Feature\Http\Controllers;
 
 use App\Models\SparePartStock;
-use App\Models\Sparepartstock;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use JMac\Testing\Traits\AdditionalAssertions;
@@ -14,14 +13,14 @@ use Tests\TestCase;
  */
 class SparePartStockControllerTest extends TestCase
 {
-    use AdditionalAssertions, RefreshDatabase, WithFaker;
+    use RefreshDatabase, WithFaker;
 
     /**
      * @test
      */
     public function index_displays_view()
     {
-        $sparePartStocks = SparePartStock::factory()->count(3)->create();
+        // $sparePartStocks = SparePartStock::factory()->count(3)->create();
 
         $response = $this->get(route('spare-part-stock.index'));
 

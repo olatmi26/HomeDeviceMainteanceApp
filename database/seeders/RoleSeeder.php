@@ -27,6 +27,7 @@ class RoleSeeder extends Seeder
             'Secertary',
             'Driver',
             'General Manager',
+            'Executive Director'
         ];
 
         $permissions= [
@@ -37,13 +38,14 @@ class RoleSeeder extends Seeder
             'edit stock',
             'create stock',
             'delete stock',
-            'view stock',                       
-            'activate user',            
-            'pan user',            
-            'upload',            
+            'view stock',
+            'activate user',
+            'pan user',
+            'upload',
             'view report',
             'download report',
         ];
+      //  Role::truncate();
 
         foreach ($roles as $key => $role) {
             Role::create(['name' => $role]);

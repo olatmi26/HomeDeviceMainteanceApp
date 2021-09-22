@@ -18,7 +18,7 @@ class CreateUserDocumentsTable extends Migration
         Schema::create('user_documents', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('user_id')->nullable();
-            $table->string('IdCard')->nullable();
+            $table->string('IdCard')->unique()->nullable();
             $table->string('PassportDocument')->nullable();
             $table->string('LegalPapersUploaded')->nullable();
             $table->string('OtherDocsHandPrint')->nullable();
