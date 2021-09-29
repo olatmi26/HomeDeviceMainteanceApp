@@ -20,6 +20,7 @@ class UserDocument extends Model
         'PassportDocument',
         'LegalPapersUploaded',
         'OtherDocsHandPrint',
+        'NationalIDCardN0',
     ];
 
     /**
@@ -30,4 +31,14 @@ class UserDocument extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    /**
+     * Get the user that owns the UserDocument
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

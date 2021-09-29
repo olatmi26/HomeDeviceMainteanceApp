@@ -18,6 +18,7 @@
         "livewire/livewire": "^2.6",
         "moneyphp/money": "^3.3",
         "phpmailer/phpmailer": "^6.5",
+        "realrashid/sweet-alert": "^4.0",
         "sms77/api": "^2.4",
         "spatie/laravel-medialibrary": "9.0.0",
         "spatie/laravel-permission": "^5.1"

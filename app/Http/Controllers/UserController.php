@@ -81,10 +81,10 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-        $user = User::create($request->validated());
+        // $user = User::create($request->validated());
 
-        $request->session()->flash('user.Firstname', $user->Firstname);
+        // $request->session()->flash('user.Firstname', $user->Firstname);
 
-        return redirect()->route('user.index');
+        // return redirect()->route('user.index');
     }
 }

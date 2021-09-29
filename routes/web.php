@@ -18,9 +18,8 @@ Route::prefix('worker')->name('worker.')->middleware(['guest', 'PBkHistory'])->g
         Route::resource('order', 'OrderController');
         Route::resource('user-document', 'UserDocumentController');
         Route::resource('stock', 'StockController');
-
-        Route::get('/', 'WorkerController@index')->name('dashboard');
         Route::get('/logout', 'Auth\LoginWorkerController@logout')->name('logout');
+        Route::get('/', 'WorkerController@index')->name('dashboard');
     });
 });
 

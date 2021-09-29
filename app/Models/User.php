@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Department;
+use Illuminate\Support\Str;
+use App\Models\UserDocument;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -31,6 +35,8 @@ class User extends Authenticatable
         'email',
         'email_verified_at',
         'password',
+        'securityPin',
+        'username',
     ];
 
     /**
@@ -59,17 +65,17 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany(\Spatie\LaravelPermission\Models\Role::class);
+        return $this->belongsToMany(Role::class);
     }
 
     public function userDocuments()
     {
-        return $this->belongsToMany(\App\Models\UserDocument::class);
+        return $this->belongsToMany(UserDocument::class);
     }
 
     public function department()
     {
-        return $this->belongsTo(\App\Models\Department::class);
+        return $this->belongsTo(Department::class);
     }
 
     public function getFullNameAttribute()

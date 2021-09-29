@@ -926,14 +926,16 @@ namespace App\Models{
  * @property int|null $department_id
  * @property string $MobileN01
  * @property string $MobileN02
- * @property string $MobileN03
+ * @property string|null $MobileN03
  * @property string|null $ProfilePhoto
  * @property string $ResidentialAddress
- * @property string $City
+ * @property string|null $City
  * @property \Illuminate\Support\Carbon $DOB
  * @property string $email
  * @property \Illuminate\Support\Carbon $email_verified_at
  * @property string $password
+ * @property string|null $securityPin
+ * @property string|null $username
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Department|null $department
@@ -942,6 +944,8 @@ namespace App\Models{
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Permission[] $permissions
  * @property-read int|null $permissions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Role[] $roles
+ * @property-read int|null $roles_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserDocument[] $userDocuments
  * @property-read int|null $user_documents_count
  * @method static \Database\Factories\UserFactory factory(...$parameters)
@@ -966,7 +970,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhoto($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereResidentialAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereSecurityPin($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereUsername($value)
  */
 	class User extends \Eloquent {}
 }
@@ -978,11 +984,13 @@ namespace App\Models{
  * @property int $id
  * @property int|null $user_id
  * @property string|null $IdCard
+ * @property string|null $NationalIDCardN0
  * @property string|null $PassportDocument
  * @property string|null $LegalPapersUploaded
  * @property string|null $OtherDocsHandPrint
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
  * @method static \Database\Factories\UserDocumentFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|UserDocument newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|UserDocument newQuery()
@@ -991,6 +999,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|UserDocument whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserDocument whereIdCard($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserDocument whereLegalPapersUploaded($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserDocument whereNationalIDCardN0($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserDocument whereOtherDocsHandPrint($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserDocument wherePassportDocument($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserDocument whereUpdatedAt($value)

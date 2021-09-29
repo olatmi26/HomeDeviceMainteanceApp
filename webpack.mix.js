@@ -1,7 +1,7 @@
 const mix = require('laravel-mix');
-mix.browserSync({
+/* mix.browserSync({
     proxy: 'http://localhost:1500'
-});
+}); */
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

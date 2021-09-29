@@ -41,5 +41,6 @@
     <!-- scripts -->
     @livewireScripts
    @include('components/script')
+   @include('sweetalert::alert')
 </body>
 </html>

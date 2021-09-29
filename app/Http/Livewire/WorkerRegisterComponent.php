@@ -25,14 +25,17 @@ class WorkerRegisterComponent extends Component
     public $gender;
     public $email;
     public $password;
-    public $IdCard;
+    public $IdCard;   
     public $PassportDocument;
     public $LegalPapersUploaded;
-    public $OtherDocsHandPrint;
-    
+    public $OtherDocsHandPrint;    
     public $username;
-    public $securitycode;
+    public $securityCode;
+    public $dobpoicked;
     public $confirm_password;
+
+    public $select_date_of_birth;
+    protected $listeners = ["selectDateOfBirth" => 'getSelectedDate'];
 
     public function mount()
     {
@@ -42,6 +45,12 @@ class WorkerRegisterComponent extends Component
     public function render()
     {
         return view('livewire.worker-register-component');
+    }
+
+    public function getSelectedDate($date)
+    {
+
+        $this->select_date_of_birth = $date;
     }
 
     public function PreviousBtnt()
@@ -62,6 +71,24 @@ class WorkerRegisterComponent extends Component
             $this->currentStage = $this->totalStage;
         }
     }
+    public function updated($fields)
+    {
+        if ($this->currentStage == 1) {
+            $this->validateOnly(
+                $fields,[
+                'firstName'             => 'required|string',
+                'Lastname'              => 'required|string',
+                'Othername'             => 'required|string',
+                'MobileN01'             => 'required',
+                'MobileN02'             => 'required',
+                // 'dobpoicked'            => 'required',
+                'gender'                => 'required|string',
+                'email'                 => 'required|string|email|unique:users',                
+                'ResidentialAddress'    => 'required|string',
+                'nationalcardno'        => 'required|string',
+            ]);             
+        }
+    }
 
     public function validateData()
     {
@@ -72,17 +99,25 @@ class WorkerRegisterComponent extends Component
                 'Othername' => 'required|string',
                 'MobileN01' => 'required',
                 'MobileN02' => 'required',
-                'DOB'       => 'required|date',
+                'dobpoicked'  => 'required',
                 'gender'    => 'required|string',
-                'email'    => 'required|string|email|unique:users',
-                'IdCard'    => 'required|string',
-            ]); 
+                'email'    => 'required|string|email|unique:users',               
+                'ResidentialAddress'    => 'required|string',
+                'nationalcardno'    => 'required|string',
+            ]);
+            if ($this->currentStage == 3) {
+                $this->validate([
+                    'password' => 'required|string|confirmed',
+                    'username'  => 'required|string',
+                ]);
+            } 
         }
 
         // if ($this->currentStage == 2) {
         //     if ($request->has('ProfilePhoto') || $request->has('PassportDocument') || $request->has('LegalPapersUploaded')) {
         //         request()->validate([
         //             'ProfilePhoto' => 'required',
+        // 'IdCard'    => 'required|string',
         //             'PassportDocument' => 'required',
         //             'LegalPapersUploaded' => 'required',
         //             'OtherDocsHandPrint' => 'required',
@@ -100,6 +135,7 @@ class WorkerRegisterComponent extends Component
 
 
     public function    SaveWorker(Request $request){
+        dd($this->validate($request));
 
     }
 }
